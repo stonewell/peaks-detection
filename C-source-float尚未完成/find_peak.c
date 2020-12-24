@@ -1,6 +1,6 @@
 /*
 * 2016-5-30
-* ²ÉÓÃ ÊğÃû-·ÇÉÌÒµĞÔÊ¹ÓÃ-½ûÖ¹ÑİÒï 3.0 ½øĞĞĞí¿É
+* é‡‡ç”¨ ç½²å-éå•†ä¸šæ€§ä½¿ç”¨-ç¦æ­¢æ¼”ç» 3.0 è¿›è¡Œè®¸å¯
 */
 
 #include "find_peak.h"
@@ -17,8 +17,8 @@ static int compare(float a,float b);
 
 
 /*
-* ´ÓinputfileÖĞ»ñÈ¡ĞÅºÅĞòÁĞ£¬·µ»ØÖµÊÇ¶ÁÈ¡ĞÅºÅµÄÊıÁ¿ 
-* sig:¶ÁÈ¡µ½µÄĞÅºÅĞòÁĞ 
+* ä»inputfileä¸­è·å–ä¿¡å·åºåˆ—ï¼Œè¿”å›å€¼æ˜¯è¯»å–ä¿¡å·çš„æ•°é‡ 
+* sig:è¯»å–åˆ°çš„ä¿¡å·åºåˆ— 
 */
 int input_signal(int sig[],FILE *inputfile){
 	int i=0;
@@ -33,8 +33,8 @@ int input_signal(int sig[],FILE *inputfile){
 } 
 
 /*
-* ½«ĞÅºÅÊä³öµ½ÎÄ¼şÖĞ
-* sig:Êä³öµÄĞòÁĞ£¬n:ĞòÁĞ³¤¶È£¬outputfile:Êä³öÎÄ¼ş 
+* å°†ä¿¡å·è¾“å‡ºåˆ°æ–‡ä»¶ä¸­
+* sig:è¾“å‡ºçš„åºåˆ—ï¼Œn:åºåˆ—é•¿åº¦ï¼Œoutputfile:è¾“å‡ºæ–‡ä»¶ 
 */
 void output_signal(float sig[],int n,FILE *outputfile){
 	int i;
@@ -46,9 +46,9 @@ void output_signal(float sig[],int n,FILE *outputfile){
 }
 
 /*
-* Ñ°ÕÒ²¨·å 
-* sig£ºÊäÈëĞòÁĞ£¬n1£ºĞòÁĞ³¤¶È £¬peaks[]:±£´æ²¨·åµÄÎ»ÖÃ 
-* ·µ»ØÖµÊÇ²¨·åµÄÊıÁ¿ 
+* å¯»æ‰¾æ³¢å³° 
+* sigï¼šè¾“å…¥åºåˆ—ï¼Œn1ï¼šåºåˆ—é•¿åº¦ ï¼Œpeaks[]:ä¿å­˜æ³¢å³°çš„ä½ç½® 
+* è¿”å›å€¼æ˜¯æ³¢å³°çš„æ•°é‡ 
 */
 int find_peaks(float sig[],int n1,int peaks[] ){
 	int maximums[MAX_SIGNAL_LEN];
@@ -81,10 +81,10 @@ int find_peaks(float sig[],int n1,int peaks[] ){
 }
 
 /*
-* Ñ°ÕÒ²¨¹È 
-* sig£ºÊäÈëĞòÁĞ£¬n1£ºĞòÁĞ³¤¶È, troughs[]:±£´æ²¨¹ÈµÄÎ»ÖÃ 
-* ·µ»ØÖµÊÇ²¨¹ÈµÄÊıÁ¿ 
-* Ëã·¨£ºÔ­Ê¼ĞòÁĞµÄÏà·´ÊıµÄ²¨·å¾ÍÊÇÔ­Ê¼ĞòÁĞµÄ²¨¹È 
+* å¯»æ‰¾æ³¢è°· 
+* sigï¼šè¾“å…¥åºåˆ—ï¼Œn1ï¼šåºåˆ—é•¿åº¦, troughs[]:ä¿å­˜æ³¢è°·çš„ä½ç½® 
+* è¿”å›å€¼æ˜¯æ³¢è°·çš„æ•°é‡ 
+* ç®—æ³•ï¼šåŸå§‹åºåˆ—çš„ç›¸åæ•°çš„æ³¢å³°å°±æ˜¯åŸå§‹åºåˆ—çš„æ³¢è°· 
 */
 int find_troughs(float sig[],int n1,int troughs[] ){
 	float tmp[MAX_SIGNAL_LEN];
@@ -95,14 +95,14 @@ int find_troughs(float sig[],int n1,int troughs[] ){
 } 
 
 /*
-* ¾ùÖµÂË²¨
-* in:ÊäÈëĞòÁĞ£¬n:ÊäÈëĞòÁĞ³¤¶È
-* out:ÂË²¨ºóĞòÁĞ£¬k:Çó¾ùÖµµÄ×ÓĞòÁĞ³¤¶È 
-* ·µ»ØÖµÊÇÂË²¨ºóĞòÁĞ³¤¶È 
+* å‡å€¼æ»¤æ³¢
+* in:è¾“å…¥åºåˆ—ï¼Œn:è¾“å…¥åºåˆ—é•¿åº¦
+* out:æ»¤æ³¢ååºåˆ—ï¼Œk:æ±‚å‡å€¼çš„å­åºåˆ—é•¿åº¦ 
+* è¿”å›å€¼æ˜¯æ»¤æ³¢ååºåˆ—é•¿åº¦ 
 */ 
 int mean_filter(int in[],int n,float out[],int k){
 	if(k > n || k > MAX_SUB_LEN){
-		fprintf(stderr,"¾ùÖµÂË²¨³ö´í£¬Çë¼ì²é²ÎÊı\n");
+		fprintf(stderr,"å‡å€¼æ»¤æ³¢å‡ºé”™ï¼Œè¯·æ£€æŸ¥å‚æ•°\n");
 		exit(1);
 	}
 	int i,num = 0; 
@@ -117,14 +117,14 @@ int mean_filter(int in[],int n,float out[],int k){
 }
 
 /*
-* ÖĞÖµÂË²¨
-* in:ÊäÈëĞòÁĞ£¬n:ÊäÈëĞòÁĞ³¤¶È
-* out:ÂË²¨ºóĞòÁĞ£¬k:ÇóÖĞÖµµÄ×ÓĞòÁĞ³¤¶È 
-* ·µ»ØÖµÊÇÂË²¨ºóĞòÁĞ³¤¶È 
+* ä¸­å€¼æ»¤æ³¢
+* in:è¾“å…¥åºåˆ—ï¼Œn:è¾“å…¥åºåˆ—é•¿åº¦
+* out:æ»¤æ³¢ååºåˆ—ï¼Œk:æ±‚ä¸­å€¼çš„å­åºåˆ—é•¿åº¦ 
+* è¿”å›å€¼æ˜¯æ»¤æ³¢ååºåˆ—é•¿åº¦ 
 */ 
 int median_filter(int in[],int n,float out[],int k){
 	if(k > n || k > MAX_SUB_LEN){
-		fprintf(stderr,"ÖĞÖµÂË²¨³ö´í£¬Çë¼ì²é²ÎÊı\n");
+		fprintf(stderr,"ä¸­å€¼æ»¤æ³¢å‡ºé”™ï¼Œè¯·æ£€æŸ¥å‚æ•°\n");
 		exit(1);
 	}
 	int i,num = 0;
@@ -146,7 +146,7 @@ static int find_maximums(int sig[],int n,int maximums_index[]){
 	if(n<=2){
 		return num;
 	}
-	int diff[MAX_SIGNAL_LEN]; //²î·Ö
+	int diff[MAX_SIGNAL_LEN]; //å·®åˆ†
 	int tmp=0;
 	for(i=1;i<n;i++){
 		if(sig[i] - sig[i-1] > 0)
@@ -156,7 +156,7 @@ static int find_maximums(int sig[],int n,int maximums_index[]){
 		else
 			diff[tmp++] = -1;		 
 	}
-	for(i=1;i<tmp;i++){ //µÚ¶ş´Î²î·ÖÇó¼«´óÖµ 
+	for(i=1;i<tmp;i++){ //ç¬¬äºŒæ¬¡å·®åˆ†æ±‚æå¤§å€¼ 
 		if(diff[i] - diff[i-1] < 0)
 			maximums_index[num++] = i; 
 	}
@@ -164,8 +164,8 @@ static int find_maximums(int sig[],int n,int maximums_index[]){
 }*/
 
 /*
-* Ñ°ÕÒsig[]ÖĞµÄ¼«´óÖµµãµÄĞòºÅ 
-* ½á¹û±£´æÔÚ maximumsÖĞ£¬·µ»ØµÄÊÇ¼«ÖµµãÊıÁ¿ 
+* å¯»æ‰¾sig[]ä¸­çš„æå¤§å€¼ç‚¹çš„åºå· 
+* ç»“æœä¿å­˜åœ¨ maximumsä¸­ï¼Œè¿”å›çš„æ˜¯æå€¼ç‚¹æ•°é‡ 
 */
 static int find_maximums(float sig[],int n,int maximums[]){
 	int i,j,num=0;
@@ -192,7 +192,7 @@ static int find_maximums(float sig[],int n,int maximums[]){
 }
 
 /*
-* ÇóĞòÁĞµÄ×î´óÖµ 
+* æ±‚åºåˆ—çš„æœ€å¤§å€¼ 
 */
 static float get_max(float sig[],int n){
 	int i;
@@ -205,7 +205,7 @@ static float get_max(float sig[],int n){
 } 
 
 /*
-* ÇóĞòÁĞµÄ×îĞ¡Öµ 
+* æ±‚åºåˆ—çš„æœ€å°å€¼ 
 */
 static float get_min(float sig[],int n){
 	int i;
@@ -218,7 +218,7 @@ static float get_min(float sig[],int n){
 } 
 
 /*
-* ĞòÁĞÖĞÊÇ·ñ´æÔÚÄ³¸öÊı 
+* åºåˆ—ä¸­æ˜¯å¦å­˜åœ¨æŸä¸ªæ•° 
 */
 static int is_exist(int a[],int n,int key){
 	int i;
@@ -230,11 +230,11 @@ static int is_exist(int a[],int n,int key){
 }
 
 /*
-* ÇóÒ»¸öĞòÁĞµÄÖĞÎ»Öµ,µ±nÎªÅ¼ÊıÊ±È¡ÖĞ¼äÁ½¸öÊıµÄÆ½¾ùÖµ 
+* æ±‚ä¸€ä¸ªåºåˆ—çš„ä¸­ä½å€¼,å½“nä¸ºå¶æ•°æ—¶å–ä¸­é—´ä¸¤ä¸ªæ•°çš„å¹³å‡å€¼ 
 */
 static float get_median(float a[],int n){
 	int i,j,tmp;
-	for(i=0;i<n;i++){  //ÅÅĞò 
+	for(i=0;i<n;i++){  //æ’åº 
 		for(j=i+1;j<n;j++){
 			if(a[i] < a[j]){
 				tmp = a[i];
@@ -249,7 +249,7 @@ static float get_median(float a[],int n){
 }
 
 /*
-* Á½¸ö¸¡µãÊıµÄ±È½Ï 
+* ä¸¤ä¸ªæµ®ç‚¹æ•°çš„æ¯”è¾ƒ 
 */
 static int compare(float a,float b){
 	if(a - b > 0.000001)

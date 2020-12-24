@@ -1,6 +1,6 @@
 /*
 * 2016-5-30
-* ²ÉÓÃ ÊğÃû-·ÇÉÌÒµĞÔÊ¹ÓÃ-½ûÖ¹ÑİÒï 3.0 ½øĞĞĞí¿É 
+* é‡‡ç”¨ ç½²å-éå•†ä¸šæ€§ä½¿ç”¨-ç¦æ­¢æ¼”ç» 3.0 è¿›è¡Œè®¸å¯ 
 */
 
 #ifndef	_FIND_PEAK
@@ -9,29 +9,29 @@
 #include "stdio.h"
 #include "stdlib.h" 
 
-#define MAX_SIGNAL_LEN  100000 //ÊäÈëĞÅºÅµÄ×î´ó³¤¶È 
-#define SCALE	0.4  //ãĞÖµ±ÈÀıÏµÊı 
-#define NEIGHBOUR 35  //ËÑË÷ÁÚÓò°ë¾¶ 
-#define MAX_SUB_LEN 30  //ÖĞÖµÂË²¨»òÕß¾ùÖµÂË²¨Ê±×ÓĞòÁĞ×î´ó³¤¶È 
+#define MAX_SIGNAL_LEN  100000 //è¾“å…¥ä¿¡å·çš„æœ€å¤§é•¿åº¦ 
+#define SCALE	0.4  //é˜ˆå€¼æ¯”ä¾‹ç³»æ•° 
+#define NEIGHBOUR 35  //æœç´¢é‚»åŸŸåŠå¾„ 
+#define MAX_SUB_LEN 30  //ä¸­å€¼æ»¤æ³¢æˆ–è€…å‡å€¼æ»¤æ³¢æ—¶å­åºåˆ—æœ€å¤§é•¿åº¦ 
 
-//typedef int DataType;  //ĞòÁĞµÄÊı¾İÀàĞÍ 
+//typedef int DataType;  //åºåˆ—çš„æ•°æ®ç±»å‹ 
 
-//ÊäÈëÊı¾İ 
+//è¾“å…¥æ•°æ® 
 int input_signal(int sig[],FILE *inputfile);
 
-//±£´æÊı¾İ 
+//ä¿å­˜æ•°æ® 
 void output_signal(float sig[],int n,FILE *outputfile);
 
-//¾ùÖµÂË²¨ 
+//å‡å€¼æ»¤æ³¢ 
 int mean_filter(int in[],int n, float out[],int k);
 
-//ÖĞÖµÂË²¨ 
+//ä¸­å€¼æ»¤æ³¢ 
 int median_filter(int in[],int n, float out[],int k);
 
-//Ñ°ÕÒ²¨·å 
+//å¯»æ‰¾æ³¢å³° 
 int find_peaks(float sig[],int n1,int peaks[] );
 
-//Ñ°ÕÒ²¨¹È 
+//å¯»æ‰¾æ³¢è°· 
 int find_troughs(float sig[],int n1,int troughs[]);
 
 #endif

@@ -1,15 +1,15 @@
 /*
 * 2016-5-30
-* ²ÉÓÃ ÊğÃû-·ÇÉÌÒµĞÔÊ¹ÓÃ-½ûÖ¹ÑİÒï 3.0 ½øĞĞĞí¿É 
+* é‡‡ç”¨ ç½²å-éå•†ä¸šæ€§ä½¿ç”¨-ç¦æ­¢æ¼”ç» 3.0 è¿›è¡Œè®¸å¯ 
 */
 
 #include "find_peak.h"
 #include "find_peak.c"
 
-int sig[MAX_SIGNAL_LEN];  //Ô­Ê¼Êı¾İ 
-float filter_sig[MAX_SIGNAL_LEN]; //ÂË²¨ºóµÄÊı¾İ 
-int peaks[MAX_SIGNAL_LEN];   //²¨·åÎ»ÖÃÊı¾İ 
-int troughs[MAX_SIGNAL_LEN];   // ²¨¹ÈÎ»ÖÃ 
+int sig[MAX_SIGNAL_LEN];  //åŸå§‹æ•°æ® 
+float filter_sig[MAX_SIGNAL_LEN]; //æ»¤æ³¢åçš„æ•°æ® 
+int peaks[MAX_SIGNAL_LEN];   //æ³¢å³°ä½ç½®æ•°æ® 
+int troughs[MAX_SIGNAL_LEN];   // æ³¢è°·ä½ç½® 
 
 int main(){
 	char inputfile_name[30] = "test-data/y02.dat";
@@ -20,26 +20,26 @@ int main(){
 	FILE *input_file = fopen(inputfile_name,"r");
 	FILE *output_file = fopen(outputfile_name,"w");
 	if(input_file == NULL){
-		fprintf(stderr,"ÊäÈëÎÄ¼ş²»´æÔÚ\n");
+		fprintf(stderr,"è¾“å…¥æ–‡ä»¶ä¸å­˜åœ¨\n");
 		exit(1);
 	}
 	
-	n1 = input_signal(sig,input_file);  //ÊäÈë 
+	n1 = input_signal(sig,input_file);  //è¾“å…¥ 
 	
-	n2 = mean_filter(sig,n1,filter_sig,6);  //¾ùÖµÂË²¨ 
+	n2 = mean_filter(sig,n1,filter_sig,6);  //å‡å€¼æ»¤æ³¢ 
 	
-	output_signal(filter_sig,n2,output_file) ;  //±£´æÂË²¨ºóµÄÊı¾İ 
-	printf("ÂË²¨ºóµÄÊı¾İÒÑ¾­±£´æÔÚÎÄ¼ş %s ÖĞ\n",outputfile_name);
+	output_signal(filter_sig,n2,output_file) ;  //ä¿å­˜æ»¤æ³¢åçš„æ•°æ® 
+	printf("æ»¤æ³¢åçš„æ•°æ®å·²ç»ä¿å­˜åœ¨æ–‡ä»¶ %s ä¸­\n",outputfile_name);
 	
-	n3 = find_peaks(filter_sig,n2,peaks);  //²¨·å 
-	n4 = find_troughs(filter_sig,n2,troughs);   //²¨¹È 
+	n3 = find_peaks(filter_sig,n2,peaks);  //æ³¢å³° 
+	n4 = find_troughs(filter_sig,n2,troughs);   //æ³¢è°· 
 
 	
-	printf("\nÂË²¨ºó²¨·åÎ»ÖÃ£º\n");
+	printf("\næ»¤æ³¢åæ³¢å³°ä½ç½®ï¼š\n");
 	for(i=0;i<n3;i++)
-		printf("%d ",peaks[i]+1);  // ÏÂ±êÓ¦¸Ã´Ó1¿ªÊ¼ 
+		printf("%d ",peaks[i]+1);  // ä¸‹æ ‡åº”è¯¥ä»1å¼€å§‹ 
 	printf("\n");
-	printf("\nÂË²¨ºó²¨¹ÈÎ»ÖÃ£º\n");
+	printf("\næ»¤æ³¢åæ³¢è°·ä½ç½®ï¼š\n");
 	for(i=0;i<n4;i++)
 		printf("%d ",troughs[i]+1);
 	printf("\n");
